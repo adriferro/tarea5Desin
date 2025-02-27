@@ -30,7 +30,7 @@
 		                <jar>${project.build.directory}/${project.build.finalName}.jar</jar>
 		                <errTitle>App Error</errTitle>
 		                <classPath>
-		                    <mainClass>com.tarea5.Interface</mainClass>
+		                    <mainClass>main.MiVentana</mainClass>
 		                </classPath>
 		            </configuration>
 		        </execution>
