@@ -1,7 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.desin5</groupId>
@@ -9,55 +9,34 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-  </properties>
+
 
   <build>
-    <plugins>
-      <!-- Plugin para compilar el código -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-      </plugin>
-
-      <!-- Plugin para generar un JAR ejecutable -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.2.0</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <mainClass>com.desin5.Main</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-
-      <!-- Plugin Launch4j para generar un EXE -->
-      <plugin>
-        <groupId>com.akathist.maven</groupId>
-        <artifactId>launch4j-maven-plugin</artifactId>
-        <version>1.7.25</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>launch4j</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <outfile>target/tarea5.exe</outfile>
-          <jar>target/tarea5-0.0.1-SNAPSHOT.jar</jar>
-          <headerType>gui</headerType>
-        </configuration>
-      </plugin>
-
-    </plugins>
+  	<plugins>
+  		<plugin>
+		    <groupId>com.akathist.maven.plugins.launch4j</groupId>
+		    <artifactId>launch4j-maven-plugin</artifactId>
+		    <version>2.5.3</version>
+		    <executions>
+		        <execution>
+		            <id>l4j-clui</id>
+		            <phase>package</phase>
+		            <goals>
+		                <goal>launch4j</goal>
+		            </goals>
+		            <configuration>
+		                <headerType>gui</headerType>
+		                <outfile>${project.build.directory}/${project.build.finalName}.exe</outfile>
+		                <jar>${project.build.directory}/${project.build.finalName}.jar</jar>
+		                <errTitle>App Error</errTitle>
+		                <classPath>
+		                    <mainClass>com.tarea5.Interface</mainClass>
+		                </classPath>
+		            </configuration>
+		        </execution>
+		    </executions>
+		</plugin>
+  	</plugins>
   </build>
 
 </project>
