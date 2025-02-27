@@ -36,6 +36,27 @@
           </archive>
         </configuration>
       </plugin>
+
+      <!-- Plugin Launch4j para generar un EXE -->
+      <plugin>
+        <groupId>com.akathist.maven</groupId>
+        <artifactId>launch4j-maven-plugin</artifactId>
+        <version>1.7.25</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>launch4j</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <outfile>target/tarea5.exe</outfile>
+          <jar>target/tarea5-0.0.1-SNAPSHOT.jar</jar>
+          <headerType>gui</headerType>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 
